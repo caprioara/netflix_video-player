@@ -8,6 +8,10 @@ const fastForwardButton = document.querySelector('.video-container .controls but
 const volumeButton = document.querySelector('.video-container .controls button.volume');
 const fullScreenButton = document.querySelector('.video-container .controls button.full-screen');
 
+const watchedBar = document.querySelector('.video-container .controls-container .progress-bar .watched-bar');
+
+watchedBar.style.width = '0px';
+
 const playPause = () => {
     if(video.paused) {
         video.play();
@@ -28,7 +32,11 @@ document.addEventListener('keydown', (event) => {
     if(event.code === 'KeyM') {
         toggleMute();
     }
-})
+});
+
+video.addEventListener('timeupdate', () => {
+    watchedBar.style.width = ((video.currentTime / video.duration) * 100) + '%';
+});
 
 playButton.addEventListener('click', playPause);
 

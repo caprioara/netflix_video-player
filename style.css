@@ -61,7 +61,7 @@ body {
 
 .video-container .progress-controls .progress-bar .watched-bar {
     height: 110%;
-    width: 20%;
+    width: 0%;
 }
 
 .video-container .progress-controls .progress-bar .playhead {
