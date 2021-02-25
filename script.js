@@ -10,6 +10,8 @@ const fullScreenButton = document.querySelector('.video-container .controls butt
 
 const watchedBar = document.querySelector('.video-container .controls-container .progress-bar .watched-bar');
 
+const timeLeft = document.querySelector('.video-container .controls-container .time-remaining')
+
 watchedBar.style.width = '0px';
 
 const playPause = () => {
@@ -34,8 +36,24 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
+function timeDigit(time){
+    return time < 10 ? '0' + time : time;
+};
+
 video.addEventListener('timeupdate', () => {
     watchedBar.style.width = ((video.currentTime / video.duration) * 100) + '%';
+    const totalSecondsRemaining = video.duration - video.currentTime;
+
+    const hoursRemaining = Math.floor(totalSecondsRemaining / 3600);
+    const minutesRemaining = Math.floor(totalSecondsRemaining % 3600 / 60);
+    const secondsRemaining = Math.floor(totalSecondsRemaining % 3600 % 60);
+
+    if (hoursRemaining >= 1) {
+        timeLeft.textContent = `${timeDigit(hoursRemaining)}:${timeDigit(minutesRemaining)}:${timeDigit(secondsRemaining)}`;
+    } else {
+        timeLeft.textContent = `${timeDigit(minutesRemaining)}:${timeDigit(secondsRemaining)}`;
+    }
+
 });
 
 playButton.addEventListener('click', playPause);
