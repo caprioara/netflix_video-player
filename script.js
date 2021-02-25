@@ -43,17 +43,38 @@ const toggleMute = () => {
     } else {
         fullVolumeButton.style.display = '';
         mutedButton.style.display = 'none';
-    }
-    
-}
+    }   
+};
 
-document.addEventListener('keydown', (event) => {
+const toggleFullScreen = () => {
+  if (!document.fullscreenElement) {
+    videoContainer.requestFullscreen();
+  } else {
+    document.exitFullscreen();
+  }
+};
+
+document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) {
+        maximizeButton.style.display = '';
+        minimizeButton.style.display = 'none';
+    } else {
+        maximizeButton.style.display = 'none';
+        minimizeButton.style.display = '';
+    }
+});
+
+document.addEventListener('keyup', (event) => {
     if(event.code === 'Space') {
         playPause();
     }
 
     if(event.code === 'KeyM') {
         toggleMute();
+    }
+
+    if(event.code === 'KeyF') {
+        toggleFullScreen();
     }
 });
 
@@ -94,15 +115,5 @@ fastForwardButton.addEventListener('click', () => {
 
 volumeButton.addEventListener('click', toggleMute);
 
-fullScreenButton.addEventListener('click', () => {
-    if(!document.fullscreenElement) {
-        videoContainer.requestFullscreen();
-        maximizeButton.style.display = 'none';
-        minimizeButton.style.display = '';
-    } else {
-        document.exitFullscreen();
-        maximizeButton.style.display = '';
-        minimizeButton.style.display = 'none';
-    }
-});
+fullScreenButton.addEventListener('click', toggleFullScreen);
 
