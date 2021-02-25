@@ -39,7 +39,6 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
-    opacity: 1;
 }
 
 .video-container .progress-controls .time-remaining {
@@ -107,9 +106,9 @@ body {
     cursor: pointer;
 }
 
-body:hover .video-container .progress-controls {
+/* .controls-container button.volume:hover .controls-container .progress-controls {
     opacity: 0 !important;
-}
+} */
 
 
 .video-container .controls button svg{
