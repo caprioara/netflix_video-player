@@ -1,6 +1,7 @@
 
 const videoContainer = document.querySelector('.video-container');
 const video = document.querySelector('.video-container video');
+const controlsContainer = document.querySelector('.video-container .controls-container');
 
 const playPauseButton = document.querySelector('.video-container .controls button.play-pause');
 const rewindButton = document.querySelector('.video-container .controls button.rewind');
@@ -19,9 +20,25 @@ const progressBar = document.querySelector('.video-container .controls-container
 const watchedBar = document.querySelector('.video-container .controls-container .progress-bar .watched-bar');
 const timeLeft = document.querySelector('.video-container .controls-container .time-remaining')
 
+
+let controlsTimeout;
+controlsContainer.style.opacity = '0';
 watchedBar.style.width = '0px';
 pauseButton.style.display = 'none';
 minimizeButton.style.display = 'none';
+
+
+const displayControls = () => {
+    controlsContainer.style.opacity = '1';
+    document.body.style.cursor = 'initial';
+    if (controlsTimeout) {
+        clearTimeout(controlsTimeout);
+    }
+    controlsTimeout = setTimeout(() => {
+    controlsContainer.style.opacity = '0';
+    document.body.style.cursor = 'none';
+  }, 3500);
+};
 
 const playPause = () => {
     if(video.paused) {
@@ -76,7 +93,13 @@ document.addEventListener('keyup', (event) => {
     if(event.code === 'KeyF') {
         toggleFullScreen();
     }
+
+    displayControls();
 });
+
+document.addEventListener('mousemove', () => {
+    displayControls();
+})
 
 function timeDigit(time){
     return time < 10 ? '0' + time : time;
