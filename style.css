@@ -47,7 +47,7 @@ body {
 }
  
 .video-container .progress-controls .progress-bar {
-    width: 92%;
+    width: 90%;
     height: 1vw;
     max-height: 5px;
     background: #5B5B5B;
@@ -136,6 +136,18 @@ body {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .video-container .controls .title {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .video-container .controls {
+        display: none;
+    }
 }
 
 .video-container .controls .title .series {

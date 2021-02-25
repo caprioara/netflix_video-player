@@ -71,6 +71,22 @@ const toggleFullScreen = () => {
   }
 };
 
+const forwardFunction = () => {
+    video.currentTime += 5;
+}
+
+const backwardFunction = () => {
+    video.currentTime -= 5;
+}
+
+const fastForwardFunction = () => {
+    video.currentTime += 10;
+}
+
+const fastBackwardFunction = () => {
+    video.currentTime -= 10;
+}
+
 document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement) {
         maximizeButton.style.display = '';
@@ -82,7 +98,7 @@ document.addEventListener('fullscreenchange', () => {
 });
 
 document.addEventListener('keyup', (event) => {
-    if(event.code === 'Space') {
+    if(event.code === 'Space' || event.code === 'KeyK') {
         playPause();
     }
 
@@ -92,6 +108,22 @@ document.addEventListener('keyup', (event) => {
 
     if(event.code === 'KeyF') {
         toggleFullScreen();
+    }
+
+    if(event.code === 'ArrowRight') {
+        forwardFunction();
+    }
+
+    if(event.code === 'ArrowLeft') {
+        backwardFunction();
+    }
+
+    if(event.code === 'KeyL') {
+        fastForwardFunction();
+    }
+
+    if(event.code === 'KeyJ') {
+        fastBackwardFunction();
     }
 
     displayControls();
@@ -128,15 +160,12 @@ progressBar.addEventListener('click', (event) => {
 
 playPauseButton.addEventListener('click', playPause);
 
-rewindButton.addEventListener('click', () => {
-    video.currentTime -= 10;
-});
+rewindButton.addEventListener('click', backwardFunction);
 
-fastForwardButton.addEventListener('click', () => {
-    video.currentTime += 10;
-});
+fastForwardButton.addEventListener('click', forwardFunction);
 
 volumeButton.addEventListener('click', toggleMute);
 
 fullScreenButton.addEventListener('click', toggleFullScreen);
 
+video.addEventListener('click', playPause)
