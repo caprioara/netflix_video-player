@@ -168,4 +168,4 @@ volumeButton.addEventListener('click', toggleMute);
 
 fullScreenButton.addEventListener('click', toggleFullScreen);
 
-video.addEventListener('click', playPause)
+// video.addEventListener('click', playPause);
