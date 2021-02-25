@@ -11,8 +11,13 @@ const fullScreenButton = document.querySelector('.video-container .controls butt
 
 const playButton = playPauseButton.querySelector('.playing');
 const pauseButton = playPauseButton.querySelector('.paused');
-const fullVolumeButton = volumeButton.querySelector('.full-volume')
+
+
+const maxVolumeButton = volumeButton.querySelector('.full-volume')
+//  
 const mutedButton = volumeButton.querySelector('.muted')
+
+
 const maximizeButton = fullScreenButton.querySelector('.maximize');
 const minimizeButton = fullScreenButton.querySelector('.minimize');
 
@@ -55,13 +60,21 @@ const playPause = () => {
 const toggleMute = () => {
     video.muted = !video.muted;
     if (video.muted) {
-        fullVolumeButton.style.display = 'none';
+        maxVolumeButton.style.display = 'none';
+        // medVolumeButton.style.display = 'none';
+        // lowVolumeButton.style.display = 'none';
         mutedButton.style.display = '';
     } else {
-        fullVolumeButton.style.display = '';
+        maxVolumeButton.style.display = '';
+        // medVolumeButton.style.display = 'none';
+        // lowVolumeButton.style.display = 'none';
         mutedButton.style.display = 'none';
     }   
 };
+
+const toggleVolume = () => {
+
+}
 
 const toggleFullScreen = () => {
   if (!document.fullscreenElement) {
@@ -73,19 +86,27 @@ const toggleFullScreen = () => {
 
 const forwardFunction = () => {
     video.currentTime += 5;
-}
+};
 
 const backwardFunction = () => {
     video.currentTime -= 5;
-}
+};
 
 const fastForwardFunction = () => {
     video.currentTime += 10;
-}
+};
 
 const fastBackwardFunction = () => {
     video.currentTime -= 10;
-}
+};
+
+const upVolume = () => {
+    video.volume += 0.1;
+};
+
+const downVolume = () => {
+    video.volume -= 0.1;
+};
 
 document.addEventListener('fullscreenchange', () => {
     if (!document.fullscreenElement) {
@@ -124,6 +145,14 @@ document.addEventListener('keyup', (event) => {
 
     if(event.code === 'KeyJ') {
         fastBackwardFunction();
+    }
+
+    if(event.code === 'ArrowUp') {
+        upVolume();
+    }
+
+    if(event.code === 'ArrowDown') {
+        downVolume();
     }
 
     displayControls();

@@ -11,9 +11,9 @@
     <title>Netflix Video</title>
 </head>
 <body>
-    <div ondblclick="toggleFullScreen()" class="video-container">
+    <div  class="video-container">
         <!-- <video onclick="playPause" src="https://storage.googleapis.com/ace-axon-302908/T6MS5B8IG3I6/22a_1614241730_75888.mp4"></video> -->
-        <video onclick="playPause()" src="media/video1.mp4"></video>
+        <video ondblclick="toggleFullScreen()" onclick="playPause()" src="media/video1.mp4"></video>
         <div class="controls-container">
             <div class="progress-controls">
                 <div class="progress-bar">
@@ -55,6 +55,16 @@
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
                     </svg>
+
+                    <!-- <svg class="med-volume" viewBox="0 0 24 24">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                    </svg>
+
+                    <svg class="low-volume" viewBox="0 0 24 24">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    </svg> -->
+
                     <svg class="muted" viewBox="0 0 24 24">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
                         <line x1="23" y1="9" x2="17" y2="15"></line>
