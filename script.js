@@ -20,12 +20,24 @@ const progressBar = document.querySelector('.video-container .controls-container
 const watchedBar = document.querySelector('.video-container .controls-container .progress-bar .watched-bar');
 const timeLeft = document.querySelector('.video-container .controls-container .time-remaining')
 
+const listContainer = document.querySelector('.video-container .list')
+const listButton = document.querySelector('.video-container .controls button.episodes');
+
 
 let controlsTimeout;
 controlsContainer.style.opacity = '0';
 watchedBar.style.width = '0px';
 pauseButton.style.display = 'none';
 minimizeButton.style.display = 'none';
+listContainer.style.display = 'none';
+
+const toggleListEpisodes = () => {
+    if (listContainer.style.display === 'none') {
+        listContainer.style.display = 'block';
+    } else {
+        listContainer.style.display = 'none';
+    }
+};
 
 
 const displayControls = () => {
@@ -168,4 +180,8 @@ volumeButton.addEventListener('click', toggleMute);
 
 fullScreenButton.addEventListener('click', toggleFullScreen);
 
+listButton.addEventListener('click', toggleListEpisodes);
+
 // video.addEventListener('click', playPause);
+
+

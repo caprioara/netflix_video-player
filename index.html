@@ -12,8 +12,8 @@
 </head>
 <body>
     <div ondblclick="toggleFullScreen()" class="video-container">
-        <!-- <video onclick="playPause" src="https://storage.googleapis.com/ace-axon-302908/T6MS5B8IG3I6/22a_1614241730_75888.mp4"></video> -->
-        <video onclick="playPause()" poster="media/thumbnail.jpg" src="media/video1.mp4"></video>
+        <video onclick="playPause()" autoplay src="https://storage.googleapis.com/bionic-run-303112/TPH2KAWIAG4D/23a_1614275788153302.mp4"></video>
+        <!-- <video onclick="playPause()" autoplay poster="media/thumbnail.jpg" src="media/video1.mp4"></video> -->
         <div class="controls-container">
             <div class="progress-controls">
                 <div class="progress-bar">
@@ -67,13 +67,13 @@
                     <span class="episode">5 min break</span>
                 </p>
             
-                <button class="help">
+                <!-- <button class="help">
                     <svg viewBox="0 0 24 24">
                         <circle cx="12" cy="12" r="10"></circle>
                         <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
                         <line x1="12" y1="17" x2="12.01" y2="17"></line>
                     </svg>
-                </button>
+                </button> -->
             
                 <button class="next">
                     <svg viewBox="0 0 24 24">
@@ -82,7 +82,7 @@
                     </svg>
                 </button>
             
-                <button class="episodes">
+                <button id="episode-list" class="episodes">
                     <svg viewBox="0 0 24 24">
                         <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                         <polyline points="2 17 12 22 22 17"></polyline>
@@ -90,20 +90,20 @@
                     </svg>
                 </button>
             
-                <button class="captions">
+                <!-- <button class="captions">
                     <svg viewBox="0 0 24 24">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                     </svg>
-                </button>
+                </button> -->
             
-                <button class="cast">
+                <!-- <button class="cast">
                     <svg viewBox="0 0 24 24">
                         <path
                             d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6">
                         </path>
                         <line x1="2" y1="20" x2="2.01" y2="20"></line>
                     </svg>
-                </button>
+                </button> -->
             
                 <button class="full-screen">
                     <svg class="maximize" viewBox="0 0 24 24" width="24" height="24">

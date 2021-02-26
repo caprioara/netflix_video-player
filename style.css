@@ -188,7 +188,7 @@ body {
     width: 460px;
     position: absolute;
     border-radius: 0.5em;
-    /* display: none; */ 
+    display: none;
 }
 
 .video-container .list .episode-box:hover {
